@@ -1,0 +1,33 @@
+# depslib dependency file v1.0
+1557109149 source:c:\users\bruch\desktop\tp_2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"validation.h"
+
+1557104521 source:c:\users\bruch\desktop\tp_2\validation.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1557104214 c:\users\bruch\desktop\tp_2\validation.h
+
+1557180130 source:e:\tp_2 - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"validation.h"
+
+1557104216 e:\tp_2 - copia\validation.h
+
+1557104522 source:e:\tp_2 - copia\validation.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
