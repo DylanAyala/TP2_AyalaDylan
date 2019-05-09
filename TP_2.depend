@@ -31,3 +31,19 @@
 	<ctype.h>
 	<string.h>
 
+1557425778 source:c:\users\dylan\desktop\tp2\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<conio.h>
+	<string.h>
+	"validation.h"
+
+1557423301 c:\users\dylan\desktop\tp2\validation.h
+
+1557424527 source:c:\users\dylan\desktop\tp2\validation.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+

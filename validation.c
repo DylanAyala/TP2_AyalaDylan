@@ -3,18 +3,18 @@
 #include <ctype.h>
 #include <string.h>
 
-int validationString(char name[], int len)
+int validationName(char name[], int len)
 {
     while(strlen(name)>len)
     {
-        printf("El nombre es demasiado largo, reingrese");
+        printf("El nombre es demasiado largo");
         fflush(stdin);
         scanf("%s",name);
     }
     return 0;
 }
 
-float validationPositive (float number)
+float validationSalary (float number)
 {
     while(number<0)
     {
@@ -26,7 +26,7 @@ float validationPositive (float number)
 
 int validationSector(int sector)
 {
-    while(sector<100 || sector>110)
+    while(sector<1 || sector>110)
     {
         printf("El codigo del sector no existe. Reingresar: ");
         scanf("%d",&sector);
@@ -49,9 +49,9 @@ char validationChar(char character)
 
 int validationId (int id)
 {
-    while(id<1000 || id>1100)
+    while(id<1 || id>1100)
     {
-        printf("Id incorrecta, reingrese valor entre 1000 y 1100: ");
+        printf("Id incorrecta, reingrese valor entre 1 y 1100: ");
         scanf("%d",&id);
     }
     return id;
