@@ -4,6 +4,7 @@
 #include <conio.h>
 #include <string.h>
 #include "validation.h"
+#include "funcionEmployee.h"
 
 #define LENG 10
 #define NAME 51
@@ -449,10 +450,11 @@ int showOrdered(int choice, eEmployee emp[], int lenEmp)
     switch(choice){
     case 1:
         for(int i=0;i<lenEmp;i++){
-
+            printf("%d",i);
         }
 
         break;
 
     }
+    return 0;
 }
