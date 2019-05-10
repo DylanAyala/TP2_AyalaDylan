@@ -53,7 +53,7 @@ int main()
             printf("        Alta de empleado\n\n");
 
 
-            index=findPlace(employee,LENG,id);
+            index=findPlace(employee,LENG);
             if(index == -1)
             {
                 printf("\nNo hay espacios disponibles\n");

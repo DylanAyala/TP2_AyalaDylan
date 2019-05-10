@@ -31,7 +31,7 @@
 	<ctype.h>
 	<string.h>
 
-1557500060 source:c:\users\dylan\desktop\tp2\main.c
+1557502162 source:c:\users\dylan\desktop\tp2\main.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -48,7 +48,7 @@
 	<ctype.h>
 	<string.h>
 
-1557500761 source:c:\users\dylan\desktop\tp2\funcionemployee.c
+1557502149 source:c:\users\dylan\desktop\tp2\funcionemployee.c
 	<stdio.h>
 	<stdlib.h>
 	<ctype.h>
@@ -57,5 +57,5 @@
 	"validation.h"
 	"funcionEmployee.h"
 
-1557499999 c:\users\dylan\desktop\tp2\funcionemployee.h
+1557502911 c:\users\dylan\desktop\tp2\funcionemployee.h
 

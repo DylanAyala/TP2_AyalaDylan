@@ -36,7 +36,7 @@ int menu (void)
     return option;
 }
 
-int findPlace(eEmployee list[], int tam, int id)
+int findPlace(eEmployee list[], int tam)
 {
 
     int index=-1;
