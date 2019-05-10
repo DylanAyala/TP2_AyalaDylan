@@ -26,7 +26,7 @@ float validationSalary (float number)
 
 int validationSector(int sector)
 {
-    while(sector<1 || sector>110)
+    while(sector<1 || sector>5)
     {
         printf("El codigo del sector no existe. Reingresar: ");
         scanf("%d",&sector);

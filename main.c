@@ -7,31 +7,8 @@
 #include "funcionEmployee.h"
 
 #define LENG 10
+#define LENGSEC 5
 #define NAME 51
-
-
-typedef struct
-{
-    int id;
-    char name[NAME];
-    char lastName[NAME];
-    float salary;
-    int sector;
-    int isEmpy;
-
-} eEmployee;
-
-int addEmployee(eEmployee list[], int len, int id, int index, char name[],char lastName[],float salary,int sector);
-int initEmployee(eEmployee employee[], int sizeEmp);
-int findEmployeeById(eEmployee list[], int len, int id);
-int menu (void);
-int menuOfSort (void);
-int modifyEmployee (eEmployee employee[], int len,int file);
-int printEmployee (eEmployee employee);
-int deleteEmployee(eEmployee list[], int len, int id);
-int findPlace(eEmployee list[], int tam, int id);
-int showEmployees(eEmployee emp[], int leng);
-int showOrdered(int choice, eEmployee emp[], int lenEmp);
 
 int main()
 {
@@ -43,7 +20,7 @@ int main()
     int id = 1;
     int idOk;
     int index;
-    int order;
+    int order=-1;
     int sector;
     int showOk;
     int entryEmployee = 0;
@@ -58,6 +35,12 @@ int main()
         {1003, "Bella", "Adda"   ,40000 ,1002, 1},
     }*/;
 
+    eSector sectores[LENGSEC] = {  {1, "Comercial"},
+        {2,"Soporte"},
+        {3,"Factuacion"},
+        {4, "Desarrollo"},
+        {5, "Infrastructura"}
+    };
     initEmployee(employee,LENG);
 
     do
@@ -100,6 +83,8 @@ int main()
                 salary=validationSalary(salary);
                 employee[index].salary=salary;
 
+                mostrarSectores(sectores, LENGSEC);
+
                 printf("Ingrese el sector del trabajo: ");
                 scanf("%d",&sector);
                 sector=validationSector(sector);
@@ -128,6 +113,8 @@ int main()
             {
                 system("cls");
                 printf("---Modificar empleado---\n\n");
+                showEmployees(employee,LENG, sectores, LENGSEC);
+
                 printf("Ingrese id: ");
                 scanf("%d",&id);
                 idOk=findEmployeeById(employee,LENG,id);
@@ -139,7 +126,7 @@ int main()
                 }
                 else
                 {
-                    end=modifyEmployee(employee,LENG,idOk);
+                    end=modifyEmployee(employee,LENG,idOk, sectores, LENGSEC);
                     if(end==-1)
                     {
                         printf("\nModificacion cancelada\n");
@@ -165,7 +152,7 @@ int main()
                 printf("\nIngrese id: ");
                 scanf("%d",&id);
                 id=validationId(id);
-                deleteEmployee(employee,LENG,id);
+                deleteEmployee(employee,LENG,id, sectores, LENGSEC);
             }
             else
             {
@@ -175,16 +162,20 @@ int main()
 
             break;
         case 4:
-            showOk = showEmployees(employee, LENG);
+            showOk = showEmployees(employee, LENG,sectores,LENGSEC);
             if(showOk == -1)
             {
                 printf("\nNo hay empleados para mostrar\n\n");
             }
             break;
         case 5:
-            if(entryEmployee){
+            if(entryEmployee)
+            {
                 order=menuOfSort();
-            }else{
+                showOrdered(order,employee, LENG, sectores, LENGSEC);
+            }
+            else
+            {
                 printf("\nNo se ingreso ningun empleado anteriormente\n\n");
             }
 
@@ -202,259 +193,3 @@ int main()
     while(exit==0);
 }
 
-
-int initEmployee(eEmployee employee[], int len)
-{
-    for(int i=0; i<len; i++)
-    {
-        employee[i].isEmpy=0;
-    }
-    return 0;
-}
-
-
-int menu (void)
-{
-    int option;
-    system("cls");
-    printf("**********Menu de opciones**********\n\n");
-    printf("1-Alta empleado\n");
-    printf("2-Modificar empleado\n");
-    printf("3-Baja empleado\n");
-    printf("4-Mostar empleados\n");
-    printf("5-Informar\n");
-    printf("0-Salir");
-    printf("\n\nIngrese opcion: ");
-    fflush(stdin);
-    scanf("%d",&option);
-    return option;
-}
-
-int findPlace(eEmployee list[], int tam, int id)
-{
-
-    int index=-1;
-
-    for(int i=0; i<tam; i++)
-    {
-        if(list[i].isEmpy==0)
-        {
-            index=i;
-            break;
-        }
-    }
-    return index;
-}
-
-
-int findEmployeeById(eEmployee list[], int len, int id)
-{
-    int index = -1;
-
-    for(int i=0; i < len; i++)
-    {
-        if(list[i].isEmpy == 1 && list[i].id == id)
-        {
-            index = i;
-            break;
-        }
-    }
-
-    return index;
-}
-
-
-
-int addEmployee(eEmployee list[], int len, int id, int index, char name[],char lastName[],float salary,int sector)
-{
-    char confirm;
-
-    printf("\n\nConfirma el ingreso del empleado? s/n: ");
-    fflush(stdin);
-    confirm=getche();
-    confirm=validationChar(confirm);
-
-    if(confirm=='s')
-    {
-        list[index].isEmpy=1;
-        list[index].id=id;
-        strcpy(list[index].name,name);
-        strcpy(list[index].lastName,lastName);
-        list[index].salary=salary;
-        list[index].sector=sector;
-        return 0;
-    }
-    else
-    {
-        printf("Canselado\n");
-        return -1;
-    }
-}
-
-int modifyEmployee (eEmployee employee[], int len, int file)
-{
-    char confirm='n';
-    char entry='n';
-    char name[100];
-    char lastName[100];
-
-    int option;
-    int sector;
-
-    float salary;
-
-    printEmployee(employee[file]);
-    printf("\nConfirma la modificacion del empleado? s/n: ");
-    fflush(stdin);
-    entry=getche();
-    entry=tolower(entry);
-    entry=validationChar(entry);
-
-    if(entry=='s')
-    {
-        do
-        {
-            printf("\n1-Modificar nombre");
-            printf("\n2-Modificar apellido");
-            printf("\n3-Modificar salario");
-            printf("\n4-Modificar sector");
-            printf("\n0-Finalizar");
-            printf("\n\nIngrese opcion: ");
-            fflush(stdin);
-            scanf("%d",&option);
-            switch(option)
-            {
-            case 1:
-                printf("\nIngrese nuevo nombre: ");
-                fflush(stdin);
-                scanf("%s",name);
-                strlwr(name);
-                name[0]=toupper(name[0]);
-                validationName(name,51);
-                strcpy(employee[file].name,name);
-
-                break;
-            case 2:
-                printf("\nInrese nuevo apellido del empleado: ");
-                fflush(stdin);
-                scanf("%s",lastName);
-                strlwr(lastName);
-                lastName[0]=toupper(lastName[0]);
-                validationName(lastName,51);
-                strcpy(employee[file].lastName,lastName);
-                break;
-            case 3:
-                printf("\nModifique el salario: ");
-                scanf("%f",&salary);
-                salary=validationSalary(salary);
-                employee[file].salary=salary;
-                break;
-            case 4:
-                printf("\nModifique el sector del trabajo: ");
-                scanf("%d",&sector);
-                validationSector(sector);
-                employee[file].sector=sector;
-                break;
-            case 0:
-                printf("\nVolver al menu anterior?(s/n)");
-                fflush(stdin);
-                confirm=getche();
-                confirm=tolower(confirm);
-                confirm=validationChar(confirm);
-                validationChar(confirm);
-                break;
-            }
-        }
-        while(confirm=='n');
-        return 1;
-    }
-
-    else
-    {
-        return -1;
-    }
-}
-
-int deleteEmployee(eEmployee list[], int len, int id)
-{
-    int index;
-    char confirm;
-
-    index=findEmployeeById(list,len,id);
-    if(index==-1)
-    {
-        printf("El id no existe\n");
-        system("pause");
-    }
-    else
-    {
-        printEmployee(list[index]);
-        printf("\nConfirma la baja del empleado? s/n");
-        fflush(stdin);
-        confirm=getche();
-        confirm=tolower(confirm);
-        validationChar(confirm);
-
-        if (confirm=='s')
-        {
-            list[index].isEmpy=0;
-            printf("\nEl empleado se dio de baja de manera correcta\n");
-        }
-        else
-        {
-            printf("\n La baja se canselo\n");
-        }
-    }
-    return 0;
-}
-
-int menuOfSort (void)
-{
-    int option;
-    system("cls");
-    printf("**********Menu de opciones**********\n\n");
-    printf("1-Listado de los empleados ordenados alfabéticamente por Apellido y Sector.\n");
-    printf("2-Total y promedio de los salarios, y cuántos empleados superan el salario promedio.");
-    printf("0-Volver al menu anterior");
-    printf("\nIngrese opcion: ");
-    fflush(stdin);
-    scanf("%d",&option);
-    return option;
-}
-
-
-int showEmployees(eEmployee emp[], int leng)
-{
-    int index = -1;
-    for(int i=0; i<leng; i++)
-    {
-        if (emp[i].isEmpy == 1)
-        {
-            printEmployee(emp[i]);
-            index = 1;
-        }
-
-    }
-
-    return index;
-}
-
-int printEmployee (eEmployee employee)
-{
-    printf("%d  %10s        %10s    %.2f    %d \n",employee.id,employee.name,employee.lastName,employee.salary,employee.sector);
-    return 0;
-}
-
-int showOrdered(int choice, eEmployee emp[], int lenEmp)
-{
-    switch(choice){
-    case 1:
-        for(int i=0;i<lenEmp;i++){
-            printf("%d",i);
-        }
-
-        break;
-
-    }
-    return 0;
-}
