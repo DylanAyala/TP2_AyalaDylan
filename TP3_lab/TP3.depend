@@ -1,0 +1,148 @@
+# depslib dependency file v1.0
+1560469929 source:c:\users\bruch\desktop\tp3a\win_64\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<stdlib.h>
+	"parser.h"
+	"LinkedList.h"
+	"Employee.h"
+	"Menues.h"
+
+1560304138 c:\users\bruch\desktop\tp3a\win_64\parser.h
+	"LinkedList.h"
+
+1560304138 c:\users\bruch\desktop\tp3a\win_64\linkedlist.h
+
+1560304138 c:\users\bruch\desktop\tp3a\win_64\employee.h
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1560397140 c:\users\bruch\desktop\tp3a\win_64\menues.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"Validations.h"
+
+1560467384 source:c:\users\bruch\desktop\tp3a\win_64\devolutions.c
+	"Devolutions.h"
+
+1560447601 c:\users\bruch\desktop\tp3a\win_64\devolutions.h
+	<stdio.h>
+	<stdlib.h>
+
+1560467384 source:c:\users\bruch\desktop\tp3a\win_64\employee.c
+	"Employee.h"
+	"stdlib.h"
+	<string.h>
+
+1560467384 source:c:\users\bruch\desktop\tp3a\win_64\menues.c
+	"Menues.h"
+
+1560467384 source:c:\users\bruch\desktop\tp3a\win_64\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560468785 source:c:\users\bruch\desktop\tp3a\win_64\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"Menues.h"
+	"Devolutions.h"
+	"Validations.h"
+
+1560469929 c:\users\bruch\desktop\tp3a\win_64\controller.h
+
+1560468911 source:c:\users\bruch\desktop\tp3a\win_64\validations.c
+	"Validations.h"
+
+1560468869 c:\users\bruch\desktop\tp3a\win_64\validations.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1560561194 source:c:\users\dylan\desktop\tp3_lab\controller.c
+	<stdio.h>
+	<stdlib.h>
+	<stdlib.h>
+	"parser.h"
+	"LinkedList.h"
+	"Employee.h"
+	"Menues.h"
+
+1560557841 c:\users\dylan\desktop\tp3_lab\parser.h
+	"LinkedList.h"
+
+1560554154 c:\users\dylan\desktop\tp3_lab\linkedlist.h
+
+1560557660 c:\users\dylan\desktop\tp3_lab\employee.h
+	"LinkedList.h"
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<ctype.h>
+
+1560557841 c:\users\dylan\desktop\tp3_lab\menues.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"Validations.h"
+
+1560557660 c:\users\dylan\desktop\tp3_lab\validations.h
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	<string.h>
+
+1560554154 source:c:\users\dylan\desktop\tp3_lab\devolutions.c
+	"Devolutions.h"
+
+1560554154 c:\users\dylan\desktop\tp3_lab\devolutions.h
+	<stdio.h>
+	<stdlib.h>
+
+1560557660 source:c:\users\dylan\desktop\tp3_lab\employee.c
+	"Employee.h"
+	"stdlib.h"
+	<string.h>
+
+1560560551 source:c:\users\dylan\desktop\tp3_lab\main.c
+	<stdio.h>
+	<stdlib.h>
+	<ctype.h>
+	"LinkedList.h"
+	"Controller.h"
+	"Employee.h"
+	"Menues.h"
+	"Status.h"
+	"Validations.h"
+
+1560557841 c:\users\dylan\desktop\tp3_lab\controller.h
+
+1560560551 source:c:\users\dylan\desktop\tp3_lab\menues.c
+	"Menues.h"
+
+1560557841 source:c:\users\dylan\desktop\tp3_lab\parser.c
+	<stdio.h>
+	<stdlib.h>
+	"LinkedList.h"
+	"Employee.h"
+
+1560557660 source:c:\users\dylan\desktop\tp3_lab\validations.c
+	"Validations.h"
+
+1560557660 source:c:\users\dylan\desktop\tp3_lab\status.c
+	"Status.h"
+
+1560557660 c:\users\dylan\desktop\tp3_lab\status.h
+	<stdio.h>
+	<stdlib.h>
+
